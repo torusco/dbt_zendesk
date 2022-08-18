@@ -1,6 +1,29 @@
 version: 2
 
 models:
+  - name: int_zendesk__user_aggregates
+    schema: zendesk_intermediate
+    columns:
+      - name: name
+        meta:
+          contains_pii: true
+      - name: email
+        meta:
+          contains_pii: true
+  
+  - name: stg_zendesk__user_tmp
+    schema: zendesk_staging
+    columns:
+      - name: name
+        meta:
+          contains_pii: true
+      - name: email
+        meta:
+          contains_pii: true
+      - name: phone
+        meta: 
+          contains_pii: true
+  
   - name: zendesk__ticket_enriched
     description: Each record represents a Zendesk ticket, enriched with data about it's tags, assignees, requester, submitter, organization and group.  
     columns:
